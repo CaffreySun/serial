@@ -21,7 +21,7 @@ endif()
 set(serial_SRCS
     src/serial.cc
     include/serial/serial.h
-    include/serial/libserial_exports.h
+    include/serial/serial_api.h
 )
 if(APPLE)
     # If OSX
@@ -40,6 +40,7 @@ endif()
 ## Add serial libraryPOSITION_INDEPENDENT_CODE
 if (BUILD_SHARED_LIBS)
     if (WIN32)
+        add_definitions(-DLIBSERIAL_DYNAMIC)
         # export all symbols on windows
         set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
     endif()

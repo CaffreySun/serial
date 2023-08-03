@@ -45,7 +45,7 @@
 #include <stdexcept>
 #include <cstdint>
 
-#include "libserial_exports.h"
+#include "serial_api.h"
 
 #define THROW(exceptionClass, message) throw exceptionClass(__FILE__, \
 __LINE__, (message) )
@@ -97,7 +97,7 @@ typedef enum {
  *
  * In order to disable the interbyte timeout, set it to Timeout::max().
  */
-struct LIBSERIAL_EXPORT_API Timeout {
+struct LIBSERIAL_API Timeout {
 #ifdef max
 # undef max
 #endif
@@ -146,7 +146,7 @@ struct LIBSERIAL_EXPORT_API Timeout {
 /*!
  * Class that provides a portable serial port interface.
  */
-class LIBSERIAL_EXPORT_API Serial {
+class LIBSERIAL_API Serial {
 public:
   /*!
    * Creates a Serial object and opens the port if a port is specified,
@@ -671,7 +671,7 @@ private:
 
 };
 
-class LIBSERIAL_EXPORT_API SerialException : public std::exception
+class LIBSERIAL_API SerialException : public std::exception
 {
   // Disable copy constructors
   SerialException& operator=(const SerialException&);
@@ -689,7 +689,7 @@ public:
   }
 };
 
-class LIBSERIAL_EXPORT_API IOException : public std::exception
+class LIBSERIAL_API IOException : public std::exception
 {
   // Disable copy constructors
   IOException& operator=(const IOException&);
@@ -728,7 +728,7 @@ public:
   }
 };
 
-class LIBSERIAL_EXPORT_API PortNotOpenedException : public std::exception
+class LIBSERIAL_API PortNotOpenedException : public std::exception
 {
   // Disable copy constructors
   const PortNotOpenedException& operator=(PortNotOpenedException);
@@ -749,7 +749,7 @@ public:
 /*!
  * Structure that describes a serial device.
  */
-struct LIBSERIAL_EXPORT_API PortInfo {
+struct LIBSERIAL_API PortInfo {
 
   /*! Address of the serial port (this can be passed to the constructor of Serial). */
   std::string port;
@@ -769,7 +769,7 @@ struct LIBSERIAL_EXPORT_API PortInfo {
  *
  * \return vector of serial::PortInfo.
  */
-LIBSERIAL_EXPORT_API std::vector<PortInfo>
+LIBSERIAL_API std::vector<PortInfo>
 list_ports();
 
 } // namespace serial
