@@ -83,7 +83,7 @@ MillisecondTimer::timespec_now ()
 {
   timespec time;
 // OS X does not have clock_gettime until 10.12, use clock_get_time
-#if defined(__MACH__) && MAC_OS_X_VERSION_MIN_REQUIRED < 101200
+#if defined(__MACH__) && MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_12
    if (__builtin_available(macOS 10.12, *)) {
       clock_gettime(CLOCK_MONOTONIC, &time);
    }
