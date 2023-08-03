@@ -3,6 +3,9 @@ set(CMAKE_CXX_STANDARD 11)
 
 project(serial)
 
+# Option to control whether to build as shared library (ON) or static library (OFF)
+option(BUILD_SHARED_LIBS "Build shared library" ON)
+
 if(APPLE)
     find_library(IOKIT_LIBRARY IOKit)
     find_library(FOUNDATION_LIBRARY Foundation)
@@ -33,8 +36,13 @@ else()
     list(APPEND serial_SRCS src/impl/list_ports/list_ports_win.cc)
 endif()
 
-## Add serial library
-add_library(${PROJECT_NAME} ${serial_SRCS})
+## Add serial libraryPOSITION_INDEPENDENT_CODE
+if (BUILD_SHARED_LIBS)
+    add_library(${PROJECT_NAME} SHARED ${serial_SRCS})
+else()
+    add_library(${PROJECT_NAME} STATIC ${serial_SRCS})
+endif ()
+
 if(APPLE)
     target_link_libraries(${PROJECT_NAME} ${FOUNDATION_LIBRARY} ${IOKIT_LIBRARY})
 elseif(UNIX)
