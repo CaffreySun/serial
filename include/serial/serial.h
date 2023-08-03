@@ -45,7 +45,7 @@
 #include <stdexcept>
 #include <cstdint>
 
-#include "serial_api.h"
+#include <serial/serial_api.h>
 
 #define THROW(exceptionClass, message) throw exceptionClass(__FILE__, \
 __LINE__, (message) )
