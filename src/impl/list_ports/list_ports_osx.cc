@@ -217,7 +217,11 @@ serial::list_ports(void)
     mach_port_t master_port;
     kern_return_t kern_result;
 
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_12
     kern_result = IOMasterPort(MACH_PORT_NULL, &master_port);
+#else
+    kern_result = IOMainPort(MACH_PORT_NULL, &master_port);
+#endif
 
     if(kern_result != KERN_SUCCESS)
         return devices_found;
