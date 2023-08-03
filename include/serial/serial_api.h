@@ -1,3 +1,5 @@
+#ifndef SERIAL_API_H
+#define SERIAL_API_H
 
 #if defined(_WIN32)
 #  if !defined(LIBSERIAL_DYNAMIC)
@@ -13,3 +15,4 @@
 #  define LIBSERIAL_API
 #endif
 
+#endif //SERIAL_API_H
