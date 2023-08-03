@@ -18,7 +18,6 @@ endif()
 set(serial_SRCS
     src/serial.cc
     include/serial/serial.h
-    include/serial/v8stdint.h
 )
 if(APPLE)
     # If OSX

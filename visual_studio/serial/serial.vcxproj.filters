@@ -29,9 +29,6 @@
     <ClInclude Include="..\..\include\serial\serial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\serial\v8stdint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\serial\impl\win.h">
       <Filter>Header Files</Filter>
     </ClInclude>

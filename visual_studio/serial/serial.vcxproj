@@ -139,7 +139,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\serial\impl\win.h" />
     <ClInclude Include="..\..\include\serial\serial.h" />
-    <ClInclude Include="..\..\include\serial\v8stdint.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
