@@ -20,8 +20,9 @@ endif()
 ## Sources
 set(serial_SRCS
     src/serial.cc
+    src/serial_c.cc
     include/serial/serial.h
-    include/serial/serial_api.h
+    include/serial/serial_c.h
 )
 if(APPLE)
     # If OSX
@@ -41,6 +42,7 @@ endif()
 if (BUILD_SHARED_LIBS)
     if (WIN32)
         add_definitions(-DLIBSERIAL_DYNAMIC)
+        add_definitions(-DLIBSERIAL_EXPORTS)
         # export all symbols on windows
         set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
     endif()
